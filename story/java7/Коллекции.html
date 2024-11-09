@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://labgensrv.zss.local/Static/RZP/Collections.ru.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><title>Коллекции</title><link href="./Коллекции_files/marxico.css" rel="stylesheet"><style>
+  .vt-augment {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .vt-augment.drawer {
+    display: none;
+    width: 700px;
+    background: white;
+    border: 1px solid #e6e6e6;
+    text-align: left;
+    z-index: 102;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    box-shadow: -4px 5px 8px -3px rgba(17, 17, 17, .16);
+    animation: slideToRight 0.5s 1 forwards;
+    transform: translateX(100vw);
+  }
+  .vt-augment.drawer[opened] {
+    display: flex;
+    animation: slideFromRight 0.2s 1 forwards;
+  }
+  .vt-augment > .spinner {
+    position: absolute;
+    z-index: 199;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    border: 8px solid rgba(0, 0, 0, 0.2);
+    border-left-color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1.2s linear infinite;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes slideFromRight {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideToRight {
+    100% {
+      transform: translateX(100vw);
+      display: none;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .vt-augment.drawer {
+      width: 100%;
+    }
+  }
+</style></head><body><div id="preview-contents" class="note-content">
+						
+					
+
+
+
+<h3>Лабораторная работа №7. Стандартные структуры данных</h3>
+
+
+
+<h4>Цели работы</h4>
+
+<ol start="1"><li><p>Получить навыки работы со стандартными структурами данных в Java</p></li>
+</ol>
+
+
+
+<h4>Используемое программное обеспечение</h4>
+
+<ol><li><p>JDK 1.5 и выше</p></li>
+<li><p>Интегрированная среда разработки на java</p></li>
+</ol>
+
+
+
+<h4>Справка</h4>
+
+<p>Стандартный пакет Java включает в себя Java Collections Framework - набор классов для работы с коллекциями объектов (организованным по некоторым правилам множествам объектов), находящийся в пакете java.util</p>
+
+
+
+<div><div style="display: block; margin: auto; text-align: center;" class="image-wrap"><img longdesc="0.png" alt="@Иерархия интерфейсов Java Collections Framework | center" title="" type="image/png" src="data:image/png;base64,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" class=""><p class="image-caption" style="text-align: center;">Иерархия интерфейсов Java Collections Framework</p></div> <br>
+Интерфейсы, наследующиеся от Collection, описывают простые последовательные наборы элементов <br>
+Интерфейс Map описывает наборы пар “Ключ =&gt; Значение”</div>
+
+<p><strong>List</strong> описывает простейший упорядоченный набор элементов <br>
+<strong>Set</strong> описывает неупорядоченное множество уникальных элементов <br>
+<strong>Queue</strong> описывает упорядоченный набор элементов, организованный по принципу FIFO (first-in-first-out, очередь)</p>
+
+<p>В данной работе будут использованы интерфейсы List и Map</p>
+
+
+
+<h5>List</h5>
+
+<p>Имеет обобщенный параметр E – тип объектов, которые <br>
+хранятся в списке</p>
+
+<p>Основные методы:</p>
+
+<ul><li><p><strong>void add(E e)</strong> – добавляет объект e в конец списка</p></li>
+<li><p><strong>E get(int index)</strong> – возвращает объект, находящийся по индексу <br>
+index</p></li>
+<li><p><strong>E remove(int index)</strong> – удаляет объект, находящийся по индексу <br>
+index</p></li>
+<li><p><strong>boolean contains(Object o)</strong> – проверяет, содержится ли в списке <br>
+объект o</p></li>
+<li><p><strong>int indexOf(Object o)</strong> – возвращает индекс, по которому в списке <br>
+находится объект o или -1, если такого объекта в списке нет</p></li>
+</ul>
+
+<p>Одной из реализаций интерфейса <strong>List</strong> является класс <strong>ArrayList</strong> <br>
+Пример использования:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line">List&lt;String&gt; strings = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+</div><div class="hljs-line">strings.add(<span class="hljs-string">"First"</span>);
+</div><div class="hljs-line">strings.add(<span class="hljs-string">"Second"</span>);
+</div><div class="hljs-line">strings.add(<span class="hljs-string">"Third"</span>);
+</div><div class="hljs-line">strings.remove(strings.indexOf(<span class="hljs-string">"Second"</span>));
+</div><div class="hljs-line"><span class="hljs-keyword">for</span> (String string : strings) {
+</div><div class="hljs-line">    System.out.println(string);
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h5>Map</h5>
+
+<p>Хранит пары Ключ =&gt; Значение и позволяет получать значение, соответствующее известному ключу <br>
+Имеет два обобщенных параметра:</p>
+
+<ul><li><p>K – тип объектов-ключей</p></li>
+<li><p>V – тип объектов-значений</p></li>
+</ul>
+
+<p>Основные методы:</p>
+
+<ul><li><p><strong>V put(K key, V value)</strong> – ставит значение value в соответствие ключу <br>
+key</p></li>
+<li><p><strong>V get(K key)</strong> – возвращает значение, соответствующее ключу key <br>
+или null, если для ключа key не было задано никакого <br>
+соответствия</p></li>
+<li><p><strong>V remove(Object key)</strong> – удаляет пару ключ-значение для <br>
+переданного ключа key</p></li>
+</ul>
+
+<p>Одной из реализаций интерфейса <strong>Map</strong> является класс <strong>HashMap</strong> <br>
+Пример использования:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line">Map&lt;String, String&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;String, String&gt;();
+</div><div class="hljs-line">map.put(<span class="hljs-string">"key1"</span>, <span class="hljs-string">"value1"</span>);
+</div><div class="hljs-line">map.put(<span class="hljs-string">"key2"</span>, <span class="hljs-string">"value2"</span>);
+</div><div class="hljs-line">System.out.println(map.get(<span class="hljs-string">"key1"</span>)); <span class="hljs-comment">// value1</span>
+</div></code></pre>
+
+
+
+<h4>Задание лабораторной работы</h4>
+
+<ol><li><p>Создать небольшой словарь на основе Map, ключ которого – слово на одном языке, а значение – список List вариантов перевода этого слова на другой <br>
+язык.</p></li>
+<li><p>Проверить работу словаря</p></li>
+<li><p>Собрать исполняемый jar и отправить на проверку</p></li>
+<li><p>Приложение должно обрабатывать аргументы командной строки и выводить на экран результирующий объект списка List вызовом метода toString()</p></li>
+<li><p>Приложение должно обязательно иметь переводы, указанные в задании. В тексте задания построчно указываются исходные слова для перевода и их варианты переводов</p></li>
+</ol>
+
+
+
+<h4>Пример выполнения лабораторной работы</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span> </span>{
+</div><div class="hljs-line">    <span class="hljs-comment">// Считываем исходное слово из аргументов</span>
+</div><div class="hljs-line">    String key = args[<span class="hljs-number">0</span>];
+</div><div class="hljs-line"><div></div>
+</div><div class="hljs-line">    <span class="hljs-comment">// *Тут создаём и наполняем словарь*</span>
+</div><div class="hljs-line"><div></div>
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span> (*Такое_слово_есть_в_словаре*) {
+</div><div class="hljs-line">        System.out.println(dictionary.get(key).toString());
+</div><div class="hljs-line">    } <span class="hljs-keyword">else</span> {
+</div><div class="hljs-line">        System.out.println(<span class="hljs-string">"Error"</span>);
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h4>Требования к программе</h4>
+
+<ol><li><p>Программа должна быть упакована в jar-архив</p></li>
+<li><p>jar-архив должен содержать аттрибут Main-Class в манифесте</p></li>
+</ol>
+
+
+
+<h4>Требования к отчёту по лабораторной работе</h4>
+
+<p>Отчёт должен содержать:</p>
+
+<ol><li><p>Титульный лист</p></li>
+<li><p>Введённые команды</p></li>
+<li><p>Листинг программы</p></li>
+<li><p>Вывод</p></li>
+</ol></div><div>
+    <div class="vtResetstyles">
+    <div id="vtoverlay" class="vtoverlay w3-animate-right w3-container vtfadein">
+    <div class="vtmain" id="vtmain">
+      <div class="vtcontactus">
+          <a id="linktest" href="https://www.virustotal.com/">
+            <img class="vtlogo-popup" style=" width: 32px;
+            height: 32px;" src="chrome-extension://efbjojhplkelaegfbieplglfidafgoka/icons/vt-logo.svg">
+          </a>
+          <a href="https://www.virustotal.com/">VT4Browsers
+          </a>
+      </div>
+      <span id="vtclose"><strong>X</strong></span>
+      <div class="vttextpopup" id="statustext">
+        <div class="vtscanstatus" id="vtscanstatus" style="font-weight: bold;">Failed to download file<br></div>
+        <div class="vtprogress vthidden" id="vtprogress"></div>
+        <br id="brfile" class="vthidden">
+        <div class="vtscanstatus vthidden" id="vtscanfilelink"></div>
+      </div>
+      <div class="vttextpopup vthidden" id="widgettext">
+        <div id="vtwidgetError"></div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div id="vt-augment-container" class="vtzindex vt-augment drawer" style="background: rgb(49, 61, 90);"></div></div><span class="vttooltiptext vthidden">&nbsp;Click to open VirusTotal report&nbsp;<br>with VT Augment</span><style></style><div id="veepn-breach-alert"><template shadowrootmode="open"><style>.breach-popup{font-family:FigtreeVF,sans-serif;position:fixed;z-index:2147483638;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;top:0;left:0;right:0;pointer-events:none;padding-inline:16px;height:0;overflow:visible;color:#222e3a}.breach-popup *{box-sizing:border-box}.breach-popup__inner{background-color:#de4558;width:100%;border-radius:16px;margin-inline:auto;pointer-events:all;position:relative;transition:transform .25s ease-in-out,max-width .25s ease-in-out;transform:translateY(16px);max-height:calc(100svh - 80px);display:flex;flex-direction:column}.breach-popup__header{min-height:32px;display:flex;align-items:center;justify-content:space-between;column-gap:16px;padding:4px;cursor:pointer}.breach-popup__close{cursor:pointer;background-color:transparent;border-style:none;outline:none;display:flex;align-items:center;justify-content:center;width:24px;height:24px;flex-shrink:0;opacity:.5}.breach-popup__wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease-in-out;overflow:hidden}.breach-popup__content{overflow:hidden;opacity:0;transform:translateY(-10px)}.breach-popup--minimize .breach-popup__inner{max-width:485px;transform:translateY(-100%)}.breach-popup--collapse .breach-popup__inner{max-width:485px}.breach-popup--expand .breach-popup__inner{max-width:1120px}.breach-popup--expand .breach-popup__wrap{grid-template-rows:1fr}.breach-popup--expand .breach-popup__content{opacity:1;transform:translateY(0);transition:transform .25s ease-in-out,opacity .25s ease-in-out;transition-delay:.15s}.breach-popup--expand .breach-popup__header{cursor:default}.breach-info{padding:2px;height:100%}.breach-info__inner{padding:22px 22px 0;background-color:#fff;border-bottom-left-radius:15px;border-bottom-right-radius:15px;height:100%;overflow:auto}.breach-info__alert{font-size:24px;line-height:32px;font-weight:700;margin:0}.breach-info__list{margin-top:24px;display:flex;flex-wrap:wrap;gap:24px}@media only screen and (width >= 992px){.breach-info__list{flex-wrap:nowrap}}.breach-info__item{width:100%}.breach-info__item:nth-child(2){max-width:320px}.breach-info__item:nth-child(3){max-width:200px}.breach-info__title{font-size:18px;font-weight:700;line-height:32px;letter-spacing:-.1px;color:#de4558;margin-top:0;margin-bottom:4px}.breach-info__description{font-size:16px;line-height:28px;letter-spacing:-.1px}.breach-info__description ul{margin:0}.breach-info__actions{display:flex;justify-content:center;padding-top:32px;padding-bottom:22px;background-color:#fff;position:sticky;bottom:0}.breach-info__btn{cursor:pointer;border-style:none;outline:none;display:inline-flex;align-items:center;height:48px;padding-inline:20px;border-radius:12px;text-align:center;font-size:16px;font-weight:700;line-height:28px;letter-spacing:-.1px;color:#fff;background-color:#ff6400}.button-expand{position:absolute;bottom:0;left:50%;transform:translate(-50%,100%);z-index:1}.button-expand__pointer{cursor:pointer}.button-expand__alert{pointer-events:none;transition:opacity .25s ease-in-out}.button-expand__arrow{pointer-events:none;transition:transform .25s ease-in-out,opacity .25s ease-in-out;transform-origin:center}.button-expand--minimize .button-expand__arrow,.button-expand--collapse .button-expand__alert,.button-expand--expand .button-expand__alert{opacity:0}.button-expand--expand .button-expand__arrow{transform:rotate(180deg)}.header-collapse{display:flex;align-items:center;flex-wrap:wrap;column-gap:4px;padding-left:8px;font-size:14px;line-height:20px;letter-spacing:-.1px;color:#fff}.header-expand{display:flex;align-items:center;flex-wrap:wrap;column-gap:4px;padding-left:20px;font-size:14px;font-weight:500;line-height:20px;letter-spacing:-.1px;color:#fff}</style></template></div><style>@font-face{font-family:FigtreeVF;src:url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"),url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");font-weight:100 1000;font-display:swap}</style></body></html>
