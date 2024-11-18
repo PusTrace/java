@@ -1,6 +1,7 @@
 package rzp.oop.grades;
 
 import java.util.List;
+import java.util.HashMap;
 
 /**
  * Таблица соответствия <b>Студента</b> к <b>Списку лаб</b> к <b>Оценкам по этим лабам</b><br>
