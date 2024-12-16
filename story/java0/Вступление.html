@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://labgensrv.zss.local/Static/RZP/Introduction.ru.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><title>Вступление</title><link href="./Вступление_files/marxico.css" rel="stylesheet"><style>
+  .vt-augment {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .vt-augment.drawer {
+    display: none;
+    width: 700px;
+    background: white;
+    border: 1px solid #e6e6e6;
+    text-align: left;
+    z-index: 102;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    box-shadow: -4px 5px 8px -3px rgba(17, 17, 17, .16);
+    animation: slideToRight 0.5s 1 forwards;
+    transform: translateX(100vw);
+  }
+  .vt-augment.drawer[opened] {
+    display: flex;
+    animation: slideFromRight 0.2s 1 forwards;
+  }
+  .vt-augment > .spinner {
+    position: absolute;
+    z-index: 199;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    border: 8px solid rgba(0, 0, 0, 0.2);
+    border-left-color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1.2s linear infinite;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes slideFromRight {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideToRight {
+    100% {
+      transform: translateX(100vw);
+      display: none;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .vt-augment.drawer {
+      width: 100%;
+    }
+  }
+</style></head><body><div id="preview-contents" class="note-content">
+						
+					
+
+
+
+<h3>Лабораторная работа №0. Вступление</h3>
+
+<p></p>
+
+
+
+<h4>Цели работы</h4>
+
+<ol><li><p>Освоить средства компиляции приложений на Java</p></li>
+<li><p>Изучить процесс сборки исполняемых jar архивов</p></li>
+</ol>
+
+
+
+<h4>Используемое программное обеспечение</h4>
+
+<ol><li><p>JDK 1.5 и выше</p></li>
+<li><p>Интегрированная среда разработки на java</p></li>
+</ol>
+
+
+
+<h4>Справка</h4>
+
+
+
+<h5>Компиляция</h5>
+
+<p>Программы на языке Java пишутся в файлах с расширением <code>*.java</code> и компилируются при помощи команды:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-bash hljs"><div class="hljs-line">javac имя_файла
+</div><div class="hljs-line">(например, javac folder/sub/Main.java)
+</div></code></pre>
+
+<p>Если главный файл связан с другими, то они тоже будут откомпилированы <br>
+После компиляции рядом со всеми файлами <code>*.java</code> появятся соответствующие им откомпилированные <code>*.class</code> файлы (один и более)</p>
+
+
+
+<h5>Запуск</h5>
+
+<p>Запустить класс на выполнение можно командой</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-bash hljs"><div class="hljs-line">java имя_класса
+</div><div class="hljs-line">(например, java folder.sub.Main)
+</div></code></pre>
+
+<p>Для этого в нём обязательно должна присутствовать функция</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span></span>
+</div></code></pre>
+
+<p>Она же и будет стартовой точкой приложения <br>
+Расширение <code>*.class</code> не указывается, а <code>/</code> в адресе заменяются на <code>.</code></p>
+
+
+
+<h5>Упаковка и распространение</h5>
+
+<p>Чаще всего для отправки нескольких связанных файлов на другой компьютер используются архивы <br>
+Java-приложение можно упаковать в архив <code>*.jar</code>, который к тому же возможно будет запустить без извлечения</p>
+
+<p>Jar-архив может содержать ресурсы и файл манифеста <code>META-INF/MANIFEST.MF</code>, в котором прописывается путь к главному классу (при необходимости) <br>
+Создать jar-архив можно как вручную, так и с помощью утилиты <code>jar</code> из пакета JDK</p>
+
+<p>Рассмотрим основные флаги утилиты <code>jar</code>:</p>
+
+<table><tbody><tr style="font-weight:bold">  <td align="left">Флаг</td>  <td align="left">Описание</td></tr><tr>  <td align="left">c</td>  <td align="left">создаёт новый архив</td></tr><tr>  <td align="left">f</td>  <td align="left">позволяет задать имя конечного архива</td></tr><tr>  <td align="left">v</td>  <td align="left">выводит на экран информацию о каждом добавляемом файле</td></tr><tr>  <td align="left">m</td>  <td align="left">позволяет указать свой файл манифеста (вместо стандартного пустого)</td></tr></tbody></table>
+
+
+
+<h5>Пример упаковки</h5>
+
+<ul><li><p>Создаём любой файл (например, <code>MANIFEST.MF</code>)</p></li>
+<li><p>Пишем в него следующее:</p></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs css"><div class="hljs-line"><span class="hljs-selector-tag">Manifest-Version</span>: 1<span class="hljs-selector-class">.0</span>
+</div><div class="hljs-line"><span class="hljs-selector-tag">Main-Class</span>: адрес.главного.класса<span class="hljs-selector-class">.Main</span>
+</div></code></pre>
+
+<p><strong>Важно</strong>: в конце файла должна быть хотя бы одна пустая строка!</p>
+
+<ul><li><p>Упаковываем приложение при помощи команды:</p></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs stylus"><div class="hljs-line">jar -cvfm out<span class="hljs-selector-class">.jar</span> MANIFEST<span class="hljs-selector-class">.MF</span> *
+</div></code></pre>
+
+<p>Последним аргументом следуют паттерны всех добавляемых в архив файлов через пробел (здесь при помощи <code>*</code> добавляются все файлы из всех подпапок)</p>
+
+<ul><li><p>Готово! Получен файл <code>out.jar</code>. Теперь его можно запускать командой</p></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-bash hljs"><div class="hljs-line">java -jar out.jar
+</div></code></pre>
+
+<ul><li><p>Если в манифесте нет параметра <code>Main-Class</code>, то для запуска необходимо дополнительно указать адрес главного класса</p></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-bash hljs"><div class="hljs-line">java -jar out.jar адрес.главного.класса.Main
+</div></code></pre>
+
+
+
+<h4>Пример выполнения лабораторной работы</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+</div><div class="hljs-line">        <span class="hljs-comment">// Выводит в консоль надпись "Hello, world!"</span>
+</div><div class="hljs-line">        System.out.println(<span class="hljs-string">"Hello, world!"</span>);
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h4>Задание лабораторной работы</h4>
+
+<ol><li><p>Создать файл <code>Main.java</code> с программой, выводящей на экран «Hello, world!»</p></li>
+<li><p>Открыть консоль, перейти в папку с файлом <code>Main.java</code> и скомпилировать его при помощи команды <code>javac Main.java</code></p></li>
+<li><p>Запустить приложение при помощи команды <code>java Main</code> и получить на экране строку «Hello, world!»</p></li>
+<li><p>Создать файл манифеста, указать в нём <code>Main-Class: Main</code></p></li>
+<li><p>Упаковать всё приложение в исполняемый jar при помощи утилиты <code>jar</code> и проверить работоспособность через <code>java -jar имя_архива.jar</code></p></li>
+<li><p>Отправить полученный jar на проверку</p></li>
+</ol>
+
+
+
+<h4>Требования к отчёту по лабораторной работе</h4>
+
+<p>Отчёт должен содержать:</p>
+
+<ol><li><p>Титульный лист</p></li>
+<li><p>Введённые команды</p></li>
+<li><p>Листинг программы</p></li>
+<li><p>Вывод</p></li>
+</ol></div><div>
+    <div class="vtResetstyles">
+    <div id="vtoverlay" class="vtoverlay w3-animate-right w3-container vtfadein">
+    <div class="vtmain" id="vtmain">
+      <div class="vtcontactus">
+          <a id="linktest" href="https://www.virustotal.com/">
+            <img class="vtlogo-popup" style=" width: 32px;
+            height: 32px;" src="chrome-extension://efbjojhplkelaegfbieplglfidafgoka/icons/vt-logo.svg">
+          </a>
+          <a href="https://www.virustotal.com/">VT4Browsers
+          </a>
+      </div>
+      <span id="vtclose"><strong>X</strong></span>
+      <div class="vttextpopup" id="statustext">
+        <div class="vtscanstatus" id="vtscanstatus" style="font-weight: bold;">Failed to download file<br></div>
+        <div class="vtprogress vthidden" id="vtprogress"></div>
+        <br id="brfile" class="vthidden">
+        <div class="vtscanstatus vthidden" id="vtscanfilelink"></div>
+      </div>
+      <div class="vttextpopup vthidden" id="widgettext">
+        <div id="vtwidgetError"></div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div id="vt-augment-container" class="vtzindex vt-augment drawer" style="background: rgb(49, 61, 90);"></div></div><span class="vttooltiptext vthidden">&nbsp;Click to open VirusTotal report&nbsp;<br>with VT Augment</span><style></style><div id="veepn-breach-alert"><template shadowrootmode="open"><style>.breach-popup{font-family:FigtreeVF,sans-serif;position:fixed;z-index:2147483638;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;top:0;left:0;right:0;pointer-events:none;padding-inline:16px;height:0;overflow:visible;color:#222e3a}.breach-popup *{box-sizing:border-box}.breach-popup__inner{background-color:#de4558;width:100%;border-radius:16px;margin-inline:auto;pointer-events:all;position:relative;transition:transform .25s ease-in-out,max-width .25s ease-in-out;transform:translateY(16px);max-height:calc(100svh - 80px);display:flex;flex-direction:column}.breach-popup__header{min-height:32px;display:flex;align-items:center;justify-content:space-between;column-gap:16px;padding:4px;cursor:pointer}.breach-popup__close{cursor:pointer;background-color:transparent;border-style:none;outline:none;display:flex;align-items:center;justify-content:center;width:24px;height:24px;flex-shrink:0;opacity:.5}.breach-popup__wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease-in-out;overflow:hidden}.breach-popup__content{overflow:hidden;opacity:0;transform:translateY(-10px)}.breach-popup--minimize .breach-popup__inner{max-width:485px;transform:translateY(-100%)}.breach-popup--collapse .breach-popup__inner{max-width:485px}.breach-popup--expand .breach-popup__inner{max-width:1120px}.breach-popup--expand .breach-popup__wrap{grid-template-rows:1fr}.breach-popup--expand .breach-popup__content{opacity:1;transform:translateY(0);transition:transform .25s ease-in-out,opacity .25s ease-in-out;transition-delay:.15s}.breach-popup--expand .breach-popup__header{cursor:default}.breach-info{padding:2px;height:100%}.breach-info__inner{padding:22px 22px 0;background-color:#fff;border-bottom-left-radius:15px;border-bottom-right-radius:15px;height:100%;overflow:auto}.breach-info__alert{font-size:24px;line-height:32px;font-weight:700;margin:0}.breach-info__list{margin-top:24px;display:flex;flex-wrap:wrap;gap:24px}@media only screen and (width >= 992px){.breach-info__list{flex-wrap:nowrap}}.breach-info__item{width:100%}.breach-info__item:nth-child(2){max-width:320px}.breach-info__item:nth-child(3){max-width:200px}.breach-info__title{font-size:18px;font-weight:700;line-height:32px;letter-spacing:-.1px;color:#de4558;margin-top:0;margin-bottom:4px}.breach-info__description{font-size:16px;line-height:28px;letter-spacing:-.1px}.breach-info__description ul{margin:0}.breach-info__actions{display:flex;justify-content:center;padding-top:32px;padding-bottom:22px;background-color:#fff;position:sticky;bottom:0}.breach-info__btn{cursor:pointer;border-style:none;outline:none;display:inline-flex;align-items:center;height:48px;padding-inline:20px;border-radius:12px;text-align:center;font-size:16px;font-weight:700;line-height:28px;letter-spacing:-.1px;color:#fff;background-color:#ff6400}.button-expand{position:absolute;bottom:0;left:50%;transform:translate(-50%,100%);z-index:1}.button-expand__pointer{cursor:pointer}.button-expand__alert{pointer-events:none;transition:opacity .25s ease-in-out}.button-expand__arrow{pointer-events:none;transition:transform .25s ease-in-out,opacity .25s ease-in-out;transform-origin:center}.button-expand--minimize .button-expand__arrow,.button-expand--collapse .button-expand__alert,.button-expand--expand .button-expand__alert{opacity:0}.button-expand--expand .button-expand__arrow{transform:rotate(180deg)}.header-collapse{display:flex;align-items:center;flex-wrap:wrap;column-gap:4px;padding-left:8px;font-size:14px;line-height:20px;letter-spacing:-.1px;color:#fff}.header-expand{display:flex;align-items:center;flex-wrap:wrap;column-gap:4px;padding-left:20px;font-size:14px;font-weight:500;line-height:20px;letter-spacing:-.1px;color:#fff}</style></template></div><style>@font-face{font-family:FigtreeVF;src:url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"),url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");font-weight:100 1000;font-display:swap}</style></body></html>

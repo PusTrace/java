@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PtJava:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PtJava_jar</output-path>
+    <root id="archive" name="PtJava.jar">
+      <element id="module-output" name="PtJava" />
+    </root>
+  </artifact>
+</component>
